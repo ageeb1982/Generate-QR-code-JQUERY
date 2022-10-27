@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Address Auto Complete in javascipt using google map api</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center" style="background-color:#e2e2e2;">
+      <h1>QR Code Generator</h1>
+      <textarea hidden id="barcode_txt"
+        style="height:50px;width:350px;">kjkfg54f5g45f4g5f4g54f54hf5455j5hjkdjkkkjkfdjkj5554df54ddsfds4ggr4hgtfj4hkju4l5jh6,jkjdkfjds;jkjl</textarea>
+      </p>
+
+      <br />
+      <div style="text-align: left; ;" id="qrcode"></div>
+
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+  <script>
+    function generateQRcode(width, height, text) {
+      $('#qrcode').qrcode({ width: width, height: height, text: text });
+    }
+
+    $(function () {
+
+      $("#qrcode").html("");
+      var txt = $.trim($('#barcode_txt').val());
+      if (txt == '') {
+        // alert("Please enter text you want to embed in OR Code");
+        return false;
+      }
+      var size = 200;
+      var width = size;
+      var height = size;
+      generateQRcode(width, height, txt);
+      return false;
+    });
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
